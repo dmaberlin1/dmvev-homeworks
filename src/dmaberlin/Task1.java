@@ -12,13 +12,20 @@ import java.util.Arrays;
     public class Task1 {
         public static void main(String[] args) {
             int[]myArray={10,20,30,40,50,60,70};
-
-            dragToRightPrint(myArray);
-
+            int[] originalArray = myArray.clone();
+           dragToRightPrintFullCycle(myArray,originalArray);
         }
 
 
-
+        private static void dragToRightPrintFullCycle(int[]arr,int[]origArr){
+            while (true){
+                dragToRightPrint(arr);
+                if (Arrays.equals(arr,origArr)){
+                    System.out.println("Complete full cycle");
+                    break;
+                }
+            }
+        }
 
         private static void dragToRightPrint(int [] array){
             dragToRight(array);
@@ -36,4 +43,3 @@ import java.util.Arrays;
         }
 
     }
-}
